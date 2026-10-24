@@ -1,22 +1,48 @@
 
 const PRODUCTS = [
-  { id: "midnight-midi", name: "Midnight Muse Midi", subtitle: "After-dark energy", price: 2499, tag: "BESTSELLER", category: "night", img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=700&q=82" },
-  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=700&q=82" },
-  { id: "city-after-dark", name: "City After Dark", subtitle: "The plan is the outfit", price: 2799, tag: "EDITOR'S PICK", category: "night", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=82" },
-  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=82" },
-  { id: "main-character", name: "Main Character Maxi", subtitle: "For the entrance", price: 3299, tag: "STATEMENT", category: "occasion", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=700&q=82" },
-  { id: "daydream", name: "Daydream Slip Dress", subtitle: "Soft layers, strong mood", price: 2199, tag: "TRENDING", category: "soft", img: "https://images.unsplash.com/photo-1496744429379-4d8e6b8e6b9d?auto=format&fit=crop&w=700&q=82" }
+  { id: "midnight-midi", name: "Midnight Muse Midi", subtitle: "After-dark energy", price: 2499, tag: "BESTSELLER", category: "night", img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85" },
+  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=900&q=85" },
+  { id: "city-after-dark", name: "City After Dark", subtitle: "The plan is the outfit", price: 2799, tag: "EDITOR'S PICK", category: "night", img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=85" },
+  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" },
+  { id: "main-character", name: "Main Character Maxi", subtitle: "For the entrance", price: 3299, tag: "STATEMENT", category: "occasion", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" },
+  { id: "daydream", name: "Daydream Slip Dress", subtitle: "Soft layers, strong mood", price: 2199, tag: "TRENDING", category: "soft", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85" }
 ];
+
+const COLLECTION_PRODUCTS = [
+  { id: "midnight-midi", name: "Midnight Muse Midi", subtitle: "After-dark energy", price: 2499, tag: "BESTSELLER", category: "night", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=85" },
+  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=85" },
+  { id: "city-after-dark", name: "City After Dark", subtitle: "The plan is the outfit", price: 2799, tag: "EDITOR'S PICK", category: "night", img: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85" },
+  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1000&q=85" },
+  { id: "main-character", name: "Main Character Maxi", subtitle: "For the entrance", price: 3299, tag: "STATEMENT", category: "occasion", img: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=1000&q=85" },
+  { id: "daydream", name: "Daydream Slip Dress", subtitle: "Soft layers, strong mood", price: 2199, tag: "TRENDING", category: "soft", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85" }
+];
+
 const $ = (s, root = document) => root.querySelector(s), $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const read = (key, fallback) => { try { return JSON.parse(localStorage.getItem(key)) ?? fallback } catch { return fallback } };
 const write = (key, val) => { try { localStorage.setItem(key, JSON.stringify(val)) } catch { } };
 function toast(message) { const el = $(".toast"); if (!el) return; el.textContent = message; el.classList.add("show"); clearTimeout(window._toastTimer); window._toastTimer = setTimeout(() => el.classList.remove("show"), 2600) }
 function money(v) { return "₹" + Number(v).toLocaleString("en-IN") }
 function renderProducts(grid, kind) {
-  let list = kind === "featured" ? [PRODUCTS[0], PRODUCTS[1], PRODUCTS[2], PRODUCTS[4]] : kind === "recommended" ? [PRODUCTS[3], PRODUCTS[5], PRODUCTS[1], PRODUCTS[0]] : [...PRODUCTS]; if (kind === "all") { const active = $(".filter-pill.active")?.dataset.filter || "all"; if (active !== "all") list = list.filter(p => p.category === active); const sort = $("#sortProducts")?.value || "featured"; if (sort === "price-low") list.sort((a, b) => a.price - b.price); if (sort === "price-high") list.sort((a, b) => b.price - a.price); if (sort === "name") list.sort((a, b) => a.name.localeCompare(b.name)) }
-  const saved = read("mystylez_saved", read("forme_saved", [])); grid.innerHTML = list.map(p => `<article class="product-card"><div class="product-image-wrap"><a href="product.html?id=${p.id}" aria-label="View ${p.name}"><img loading="lazy" src="${p.img}" alt="${p.name}"></a><span class="product-badge">${p.tag}</span><button class="heart-btn ${saved.includes(p.id) ? "saved" : ""}" data-fav="${p.id}" aria-label="Save ${p.name}">${saved.includes(p.id) ? "♥" : "♡"}</button><button class="quick-add" data-add="${p.id}">Add to bag · ${money(p.price)}</button></div><div class="product-info"><h3><a href="product.html?id=${p.id}">${p.name}</a></h3><p>${money(p.price)}</p></div><div class="product-subtitle">${p.subtitle}</div></article>`).join(""); applyDynamicTypography()
+  const existingComments = [...grid.childNodes]
+    .filter(n => n.nodeType === 8)
+    .map(c => `<!--${c.nodeValue}-->`)
+    .join("\n");
+
+  let list = kind === "featured" ? [PRODUCTS[0], PRODUCTS[1], PRODUCTS[2], PRODUCTS[4]] : kind === "recommended" ? [PRODUCTS[3], PRODUCTS[5], PRODUCTS[1], PRODUCTS[0]] : [...COLLECTION_PRODUCTS];
+  if (kind === "all") {
+    const active = $(".filter-pill.active")?.dataset.filter || "all";
+    if (active !== "all") list = list.filter(p => p.category === active);
+    const sort = $("#sortProducts")?.value || "featured";
+    if (sort === "price-low") list.sort((a, b) => a.price - b.price);
+    if (sort === "price-high") list.sort((a, b) => b.price - a.price);
+    if (sort === "name") list.sort((a, b) => a.name.localeCompare(b.name))
+  }
+  const saved = read("mystylez_saved", read("forme_saved", []));
+  const cardsHtml = list.map(p => `<article class="product-card"><div class="product-image-wrap"><a href="product.html?id=${p.id}" aria-label="View ${p.name}"><img loading="lazy" src="${p.img}" alt="${p.name}"></a><span class="product-badge">${p.tag}</span><button class="heart-btn ${saved.includes(p.id) ? "saved" : ""}" data-fav="${p.id}" aria-label="Save ${p.name}">${saved.includes(p.id) ? "♥" : "♡"}</button><button class="quick-add" data-add="${p.id}">Add to bag · ${money(p.price)}</button></div><div class="product-info"><h3><a href="product.html?id=${p.id}">${p.name}</a></h3><p>${money(p.price)}</p></div><div class="product-subtitle">${p.subtitle}</div></article>`).join("");
+  grid.innerHTML = (existingComments ? existingComments + "\n" : "") + cardsHtml;
+  applyDynamicTypography()
 }
-function renderBag() { const items = read("mystylez_bag", read("forme_bag", [])); $$(".bag-count").forEach(el => el.textContent = items.reduce((n, x) => n + x.qty, 0)); const container = $("#bagItems"); if (!container) return; $("#bagItemCount").textContent = `${items.reduce((n, x) => n + x.qty, 0)} PIECES`; $("#bagEmpty").hidden = items.length > 0; container.innerHTML = items.map(x => { const p = PRODUCTS.find(p => p.id === x.id); if (!p) return ""; return `<article class="bag-item"><img src="${p.img}" alt="${p.name}"><div><h3>${p.name}</h3><p>${p.subtitle}</p><p>Qty: ${x.qty}</p><button class="remove-item" data-remove="${p.id}">Remove</button></div><b>${money(p.price * x.qty)}</b></article>` }).join(""); const total = items.reduce((n, x) => n + (PRODUCTS.find(p => p.id === x.id)?.price || 0) * x.qty, 0); $("#bagSubtotal").textContent = money(total); $("#bagTotal").textContent = money(total); applyDynamicTypography() }
+function renderBag() { const items = read("mystylez_bag", read("forme_bag", [])); $$(".bag-count").forEach(el => el.textContent = items.reduce((n, x) => n + x.qty, 0)); const container = $("#bagItems"); if (!container) return; $("#bagItemCount").textContent = `${items.reduce((n, x) => n + x.qty, 0)} PIECES`; $("#bagEmpty").hidden = items.length > 0; container.innerHTML = items.map(x => { const p = [...PRODUCTS, ...COLLECTION_PRODUCTS].find(p => p.id === x.id); if (!p) return ""; return `<article class="bag-item"><img src="${p.img}" alt="${p.name}"><div><h3>${p.name}</h3><p>${p.subtitle}</p><p>Qty: ${x.qty}</p><button class="remove-item" data-remove="${p.id}">Remove</button></div><b>${money(p.price * x.qty)}</b></article>` }).join(""); const total = items.reduce((n, x) => n + ([...PRODUCTS, ...COLLECTION_PRODUCTS].find(p => p.id === x.id)?.price || 0) * x.qty, 0); $("#bagSubtotal").textContent = money(total); $("#bagTotal").textContent = money(total); applyDynamicTypography() }
 function addToBag(id) { const bag = read("mystylez_bag", read("forme_bag", [])); const found = bag.find(x => x.id === id); if (found) found.qty++; else bag.push({ id, qty: 1 }); write("mystylez_bag", bag); renderBag(); toast("Added to your bag ✳") }
 function openAccount(tab = "login") { const modal = $("#accountModal"); if (!modal) return; modal.hidden = false; document.body.style.overflow = "hidden"; setAuthTab(tab); applyDynamicTypography(); $(".modal-close")?.focus() }
 function closeAccount() { const modal = $("#accountModal"); if (modal) { modal.hidden = true; document.body.style.overflow = "" } }
