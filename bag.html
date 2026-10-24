@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f7f4ef">
+    <title>Your Bag — FORME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="bag">
+    <div class="announcement">THE NEW DROP IS HERE ✳ FIND YOUR NEXT MAIN CHARACTER LOOK <a href="collections.html">SHOP
+            THE EDIT ↗</a></div>
+    <header class="site-header"><a class="wordmark" href="index.html">FORME<span>®</span></a><button class="mobile-menu"
+            aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="main-nav"><a href="index.html">Home</a><a href="collections.html">The Edit</a><a
+                href="trending.html">Trending</a><a href="style-journal.html">Style Journal</a><a href="about.html">Our
+                Mood</a></nav>
+        <div class="header-actions"><button class="icon-btn account-open" aria-label="Open login or signup">♙</button><a
+                class="bag-link" href="bag.html">Bag <span class="bag-count">0</span></a></div>
+    </header>
+    <main>
+        <section class="bag-hero wrap">
+            <p class="eyebrow">YOUR PICKS, YOUR PACE</p>
+            <h1>The <em>bag.</em></h1>
+            <p>All the looks you're thinking about. Nothing's final until you say so.</p>
+        </section>
+        <section class="wrap bag-layout">
+            <div class="bag-main">
+                <div class="bag-toolbar"><span id="bagItemCount">0 PIECES</span><a href="collections.html"
+                        class="text-link">Keep exploring ↗</a></div>
+                <div id="bagItems" class="bag-items"></div>
+                <div class="bag-empty" id="bagEmpty"><span class="empty-star">✳</span>
+                    <h2>It's giving <em>blank canvas.</em></h2>
+                    <p>Your next favorite dress is one scroll away.</p><a class="btn btn-dark"
+                        href="collections.html">Explore the edit ↗</a>
+                </div>
+            </div>
+            <aside class="bag-summary">
+                <p class="eyebrow">THE RECAP</p>
+                <div class="summary-line"><span>Subtotal</span><b id="bagSubtotal">₹0</b></div>
+                <div class="summary-line"><span>Shipping</span><span>Calculated later</span></div>
+                <div class="summary-line summary-total"><span>Total estimate</span><b id="bagTotal">₹0</b></div>
+                <p class="summary-note">Demo only. Checkout, payment, taxes and shipping are not connected.</p><button
+                    class="btn btn-dark full" id="checkoutBtn">Continue to checkout ↗</button>
+                <div class="secure-note">♡ EASY TO CHANGE YOUR MIND</div>
+            </aside>
+        </section>
+        <section class="wrap bag-recommend">
+            <div class="section-top">
+                <div>
+                    <p class="eyebrow">JUST ONE MORE LOOK</p>
+                    <h2>Maybe your <em>next fave.</em></h2>
+                </div><a href="collections.html" class="text-link">See everything ↗</a>
+            </div>
+            <div class="product-grid" data-product-grid="recommended"></div>
+        </section>
+    </main>
+    <footer class="footer wrap"><a class="wordmark" href="index.html">FORME<span>®</span></a>
+        <p>Wear the version of you that feels right.</p>
+        <div class="footer-links"><a href="collections.html">The edit</a><a href="trending.html">Trending</a><a
+                href="style-journal.html">Style journal</a><a href="about.html">Our mood</a><button
+                class="plain-btn account-open">Account</button></div><small>© <span data-year></span> FORME Studio ·
+            Fashion website concept</small>
+    </footer>
+    <div class="modal-backdrop" id="accountModal" hidden>
+        <section class="account-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button
+                class="modal-close" aria-label="Close">×</button>
+            <div class="modal-visual"><span class="modal-logo">F.</span>
+                <p>YOUR STYLE<br>IS YOURS.</p><small>COME AS YOU ARE.</small>
+            </div>
+            <div class="modal-content">
+                <p class="eyebrow">YOUR STYLE SPACE</p>
+                <h2 id="modalTitle">Good looks.<br><em>Good to see you.</em></h2>
+                <div class="auth-tabs"><button class="auth-tab active" data-auth="login">Log in</button><button
+                        class="auth-tab" data-auth="signup">Sign up</button></div>
+                <form id="authForm"><label for="authEmail">Email address</label><input id="authEmail" type="email"
+                        placeholder="you@example.com" required><label for="authPassword">Password</label><input
+                        id="authPassword" type="password" minlength="6" placeholder="At least 6 characters" required>
+                    <div class="signup-only" hidden><label for="authName">Your name</label><input id="authName"
+                            type="text" placeholder="What should we call you?"><label class="check-row"><input
+                                type="checkbox"> Send me new drops and style edits</label></div><button
+                        class="btn btn-dark full" type="submit" id="authSubmit">Log in ↗</button>
+                    <p class="form-feedback" id="authFeedback" aria-live="polite">Demo only — no password is stored or
+                        sent.</p>
+                    <p class="legal-note">Production login requires secure backend authentication.</p>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f7f4ef">
+    <title>Style Journal — FORME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="journal">
+    <div class="announcement">THE NEW DROP IS HERE ✳ FIND YOUR NEXT MAIN CHARACTER LOOK <a href="collections.html">SHOP
+            THE EDIT ↗</a></div>
+    <header class="site-header"><a class="wordmark" href="index.html">FORME<span>®</span></a><button class="mobile-menu"
+            aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="main-nav"><a href="index.html">Home</a><a href="collections.html">The Edit</a><a
+                href="trending.html">Trending</a><a href="style-journal.html">Style Journal</a><a href="about.html">Our
+                Mood</a></nav>
+        <div class="header-actions"><button class="icon-btn account-open" aria-label="Open login or signup">♙</button><a
+                class="bag-link" href="bag.html">Bag <span class="bag-count">0</span></a></div>
+    </header>
+    <main>
+        <section class="journal-hero wrap">
+            <p class="eyebrow">NOT RULES. JUST IDEAS.</p>
+            <h1>Wear the <em>story.</em></h1>
+            <p>Little styling shifts, big outfit energy. Save ideas for later and make them your own.</p>
+        </section>
+        <section class="wrap journal-grid">
+            <article class="journal-card journal-feature"><img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+                    alt="Layered fashion look">
+                <div class="journal-meta"><span>THE STYLE FILE / 01</span><span>4 MIN READ</span></div>
+                <h2>Layer it like<br><em>you meant it.</em></h2>
+                <p>A slip dress is a starting point. Add a boxy jacket, chunky shoes or a vintage belt and make the
+                    contrast yours.</p><button class="save-story" data-save-story="layering">♡ Save this idea</button>
+            </article>
+            <article class="journal-card"><img
+                    src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=900&q=85"
+                    alt="Fashion editorial color story">
+                <div class="journal-meta"><span>COLOR THEORY</span><span>3 MIN READ</span></div>
+                <h2>Color that<br><em>changes the mood.</em></h2>
+                <p>Try one unexpected color against a neutral base. Start small; go louder when it feels right.</p>
+                <button class="save-story" data-save-story="colour">♡ Save this idea</button>
+            </article>
+            <article class="journal-card"><img
+                    src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85"
+                    alt="Street style inspiration">
+                <div class="journal-meta"><span>REAL-LIFE STYLE</span><span>5 MIN READ</span></div>
+                <h2>Repeat outfits.<br><em>Repeat confidence.</em></h2>
+                <p>Build a small rotation of dresses that work with different shoes, bags and layers. Rewearing is a
+                    flex.</p><button class="save-story" data-save-story="repeat">♡ Save this idea</button>
+            </article>
+            <article class="journal-card journal-dark"><span class="journal-asterisk">✳</span>
+                <p class="eyebrow">A NOTE TO SELF</p>
+                <h2>Style isn't a<br>test you pass.<br><em>It's a language.</em></h2><a class="btn btn-light"
+                    href="collections.html">Find your words ↗</a>
+            </article>
+        </section>
+        <section class="wrap journal-bottom">
+            <p class="eyebrow">YOUR SAVED IDEAS</p>
+            <h2>Keep the good <em>inspo.</em></h2>
+            <p id="savedStories">No saved ideas yet. Tap “Save this idea” to keep one here on this device.</p>
+        </section>
+    </main>
+    <footer class="footer wrap"><a class="wordmark" href="index.html">FORME<span>®</span></a>
+        <p>Wear the version of you that feels right.</p>
+        <div class="footer-links"><a href="collections.html">The edit</a><a href="trending.html">Trending</a><a
+                href="style-journal.html">Style journal</a><a href="about.html">Our mood</a><button
+                class="plain-btn account-open">Account</button></div><small>© <span data-year></span> FORME Studio ·
+            Fashion website concept</small>
+    </footer>
+    <div class="modal-backdrop" id="accountModal" hidden>
+        <section class="account-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button
+                class="modal-close" aria-label="Close">×</button>
+            <div class="modal-visual"><span class="modal-logo">F.</span>
+                <p>YOUR STYLE<br>IS YOURS.</p><small>COME AS YOU ARE.</small>
+            </div>
+            <div class="modal-content">
+                <p class="eyebrow">YOUR STYLE SPACE</p>
+                <h2 id="modalTitle">Good looks.<br><em>Good to see you.</em></h2>
+                <div class="auth-tabs"><button class="auth-tab active" data-auth="login">Log in</button><button
+                        class="auth-tab" data-auth="signup">Sign up</button></div>
+                <form id="authForm"><label for="authEmail">Email address</label><input id="authEmail" type="email"
+                        placeholder="you@example.com" required><label for="authPassword">Password</label><input
+                        id="authPassword" type="password" minlength="6" placeholder="At least 6 characters" required>
+                    <div class="signup-only" hidden><label for="authName">Your name</label><input id="authName"
+                            type="text" placeholder="What should we call you?"><label class="check-row"><input
+                                type="checkbox"> Send me new drops and style edits</label></div><button
+                        class="btn btn-dark full" type="submit" id="authSubmit">Log in ↗</button>
+                    <p class="form-feedback" id="authFeedback" aria-live="polite">Demo only — no password is stored or
+                        sent.</p>
+                    <p class="legal-note">Production login requires secure backend authentication.</p>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#f7f4ef">
+    <title>The Edit — FORME</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body data-page="collections">
+    <div class="announcement">THE NEW DROP IS HERE ✳ FIND YOUR NEXT MAIN CHARACTER LOOK <a href="collections.html">SHOP
+            THE EDIT ↗</a></div>
+    <header class="site-header"><a class="wordmark" href="index.html">FORME<span>®</span></a><button class="mobile-menu"
+            aria-label="Open menu" aria-expanded="false">☰</button>
+        <nav class="main-nav"><a href="index.html">Home</a><a href="collections.html">The Edit</a><a
+                href="trending.html">Trending</a><a href="style-journal.html">Style Journal</a><a href="about.html">Our
+                Mood</a></nav>
+        <div class="header-actions"><button class="icon-btn account-open" aria-label="Open login or signup">♙</button><a
+                class="bag-link" href="bag.html">Bag <span class="bag-count">0</span></a></div>
+    </header>
+    <main>
+        <section class="collection-hero wrap">
+            <div>
+                <p class="eyebrow">CURATED FOR YOUR CURRENT ERA</p>
+                <h1>The <em>dress</em><br>edit.</h1>
+                <p>Less scrolling, more finding-the-one. Explore looks that match your plans—or change them.</p>
+            </div><img
+                src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85"
+                alt="Fashion editorial portrait">
+        </section>
+        <section class="wrap collection-tools">
+            <div class="filter-pills"><button class="filter-pill active" data-filter="all">All looks</button><button
+                    class="filter-pill" data-filter="occasion">Big plans</button><button class="filter-pill"
+                    data-filter="everyday">Everyday energy</button><button class="filter-pill" data-filter="night">After
+                    dark</button><button class="filter-pill" data-filter="soft">Soft era</button></div><label
+                class="sort-control">Sort <select id="sortProducts">
+                    <option value="featured">Curated</option>
+                    <option value="price-low">Price: low to high</option>
+                    <option value="price-high">Price: high to low</option>
+                    <option value="name">Name A–Z</option>
+                </select></label>
+        </section>
+        <section class="wrap collection-content">
+            <div class="collection-note"><span>THE COLLECTION / 01</span>
+                <p>Pieces for the mood you're in—and the one you're becoming.</p>
+            </div>
+            <div class="product-grid large-grid" data-product-grid="all"></div>
+            <div class="editorial-break">
+                <p>NOT A DRESS CODE.</p>
+                <h2>A <em>whole</em><br>point of view.</h2><a class="btn btn-dark" href="style-journal.html">Find your
+                    style ↗</a>
+            </div>
+        </section>
+    </main>
+    <footer class="footer wrap"><a class="wordmark" href="index.html">FORME<span>®</span></a>
+        <p>Wear the version of you that feels right.</p>
+        <div class="footer-links"><a href="collections.html">The edit</a><a href="trending.html">Trending</a><a
+                href="style-journal.html">Style journal</a><a href="about.html">Our mood</a><button
+                class="plain-btn account-open">Account</button></div><small>© <span data-year></span> FORME Studio ·
+            Fashion website concept</small>
+    </footer>
+    <div class="modal-backdrop" id="accountModal" hidden>
+        <section class="account-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button
+                class="modal-close" aria-label="Close">×</button>
+            <div class="modal-visual"><span class="modal-logo">F.</span>
+                <p>YOUR STYLE<br>IS YOURS.</p><small>COME AS YOU ARE.</small>
+            </div>
+            <div class="modal-content">
+                <p class="eyebrow">YOUR STYLE SPACE</p>
+                <h2 id="modalTitle">Good looks.<br><em>Good to see you.</em></h2>
+                <div class="auth-tabs"><button class="auth-tab active" data-auth="login">Log in</button><button
+                        class="auth-tab" data-auth="signup">Sign up</button></div>
+                <form id="authForm"><label for="authEmail">Email address</label><input id="authEmail" type="email"
+                        placeholder="you@example.com" required><label for="authPassword">Password</label><input
+                        id="authPassword" type="password" minlength="6" placeholder="At least 6 characters" required>
+                    <div class="signup-only" hidden><label for="authName">Your name</label><input id="authName"
+                            type="text" placeholder="What should we call you?"><label class="check-row"><input
+                                type="checkbox"> Send me new drops and style edits</label></div><button
+                        class="btn btn-dark full" type="submit" id="authSubmit">Log in ↗</button>
+                    <p class="form-feedback" id="authFeedback" aria-live="polite">Demo only — no password is stored or
+                        sent.</p>
+                    <p class="legal-note">Production login requires secure backend authentication.</p>
+                </form>
+            </div>
+        </section>
+    </div>
+    <div class="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+</body>
+
+</html>
