@@ -1,18 +1,18 @@
 
 const PRODUCTS = [
-  { id: "midnight-midi", name: "Midnight Muse Midi", subtitle: "After-dark energy", price: 2499, tag: "BESTSELLER", category: "night", img: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=900&q=85" },
-  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=900&q=85" },
+  { id: "midnight-midi", name: "Midnight Muse Midi", subtitle: "After-dark energy", price: 2499, tag: "BESTSELLER", category: "night", img: "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=900&q=85" },
+  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=1000&q=85" },
   { id: "city-after-dark", name: "City After Dark", subtitle: "The plan is the outfit", price: 2799, tag: "EDITOR'S PICK", category: "night", img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=900&q=85" },
-  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" },
-  { id: "main-character", name: "Main Character Maxi", subtitle: "For the entrance", price: 3299, tag: "STATEMENT", category: "occasion", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=85" },
+  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85" },
+  { id: "main-character", name: "Main Character Maxi", subtitle: "For the entrance", price: 3299, tag: "STATEMENT", category: "occasion", img: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=85" },
   { id: "daydream", name: "Daydream Slip Dress", subtitle: "Soft layers, strong mood", price: 2199, tag: "TRENDING", category: "soft", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85" }
 ];
 
 const COLLECTION_PRODUCTS = [
   { id: "midnight-midi", name: "Midnight Muse Midi", subtitle: "After-dark energy", price: 2499, tag: "BESTSELLER", category: "night", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=85" },
-  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1000&q=85" },
+  { id: "soft-romance", name: "Soft Focus Dress", subtitle: "A softer kind of statement", price: 1899, tag: "NEW DROP", category: "soft", img: "https://images.unsplash.com/photo-1551232864-3f0890e580d9?auto=format&fit=crop&w=1000&q=85" },
   { id: "city-after-dark", name: "City After Dark", subtitle: "The plan is the outfit", price: 2799, tag: "EDITOR'S PICK", category: "night", img: "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1000&q=85" },
-  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?auto=format&fit=crop&w=1000&q=85" },
+  { id: "weekend-state", name: "Weekend State of Mind", subtitle: "Easy all-day dressing", price: 1599, tag: "EVERYDAY", category: "everyday", img: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1000&q=85" },
   { id: "main-character", name: "Main Character Maxi", subtitle: "For the entrance", price: 3299, tag: "STATEMENT", category: "occasion", img: "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=1000&q=85" },
   { id: "daydream", name: "Daydream Slip Dress", subtitle: "Soft layers, strong mood", price: 2199, tag: "TRENDING", category: "soft", img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85" }
 ];
@@ -38,7 +38,7 @@ function renderProducts(grid, kind) {
     if (sort === "name") list.sort((a, b) => a.name.localeCompare(b.name))
   }
   const saved = read("mystylez_saved", read("forme_saved", []));
-  const cardsHtml = list.map(p => `<article class="product-card"><div class="product-image-wrap"><a href="product.html?id=${p.id}" aria-label="View ${p.name}"><img loading="lazy" src="${p.img}" alt="${p.name}"></a><span class="product-badge">${p.tag}</span><button class="heart-btn ${saved.includes(p.id) ? "saved" : ""}" data-fav="${p.id}" aria-label="Save ${p.name}">${saved.includes(p.id) ? "♥" : "♡"}</button><button class="quick-add" data-add="${p.id}">Add to bag · ${money(p.price)}</button></div><div class="product-info"><h3><a href="product.html?id=${p.id}">${p.name}</a></h3><p>${money(p.price)}</p></div><div class="product-subtitle">${p.subtitle}</div></article>`).join("");
+  const cardsHtml = list.map(p => `<article class="product-card"><div class="product-image-wrap"><img loading="lazy" src="${p.img}" alt="${p.name}"><span class="product-badge">${p.tag}</span><button class="heart-btn ${saved.includes(p.id) ? "saved" : ""}" data-fav="${p.id}" aria-label="Save ${p.name}">${saved.includes(p.id) ? "♥" : "♡"}</button><button class="quick-add" data-add="${p.id}">Add to bag · ${money(p.price)}</button></div><div class="product-info"><h3>${p.name}</h3><p>${money(p.price)}</p></div><div class="product-subtitle">${p.subtitle}</div></article>`).join("");
   grid.innerHTML = (existingComments ? existingComments + "\n" : "") + cardsHtml;
   applyDynamicTypography()
 }
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(closeAccount, 500);
   });
   $$("[data-product-grid]").forEach(grid => renderProducts(grid, grid.dataset.productGrid));
-  document.addEventListener("click", e => { const add = e.target.closest("[data-add]"); if (add) addToBag(add.dataset.add); const fav = e.target.closest("[data-fav]"); if (fav) { const saved = read("mystylez_saved", read("forme_saved", [])), id = fav.dataset.fav; const next = saved.includes(id) ? saved.filter(x => x !== id) : [...saved, id]; write("mystylez_saved", next); fav.classList.toggle("saved", next.includes(id)); fav.textContent = next.includes(id) ? "♥" : "♡"; toast(next.includes(id) ? "Saved to your style list" : "Removed from saved looks") } const remove = e.target.closest("[data-remove]"); if (remove) { write("mystylez_bag", read("mystylez_bag", read("forme_bag", [])).filter(x => x.id !== remove.dataset.remove)); renderBag(); toast("Removed from your bag") } });
+  document.addEventListener("click", e => { const prodLink = e.target.closest("a[href*='product.html'], a[href*='product?']"); if (prodLink) { e.preventDefault(); return } const add = e.target.closest("[data-add]"); if (add) addToBag(add.dataset.add); const fav = e.target.closest("[data-fav]"); if (fav) { const saved = read("mystylez_saved", read("forme_saved", [])), id = fav.dataset.fav; const next = saved.includes(id) ? saved.filter(x => x !== id) : [...saved, id]; write("mystylez_saved", next); fav.classList.toggle("saved", next.includes(id)); fav.textContent = next.includes(id) ? "♥" : "♡"; toast(next.includes(id) ? "Saved to your style list" : "Removed from saved looks") } const remove = e.target.closest("[data-remove]"); if (remove) { write("mystylez_bag", read("mystylez_bag", read("forme_bag", [])).filter(x => x.id !== remove.dataset.remove)); renderBag(); toast("Removed from your bag") } });
   $$(".filter-pill").forEach(b => b.addEventListener("click", () => { $$(".filter-pill").forEach(x => x.classList.toggle("active", x === b)); const grid = $('[data-product-grid="all"]'); if (grid) renderProducts(grid, "all") }));
   $("#sortProducts")?.addEventListener("change", () => { const grid = $('[data-product-grid="all"]'); if (grid) renderProducts(grid, "all") });
   renderBag(); $("#checkoutBtn")?.addEventListener("click", () => toast("Checkout is a demo only — no payment was taken."));
