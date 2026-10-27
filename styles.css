@@ -267,9 +267,13 @@ p {
 }
 
 h1 {
-    font: 500 clamp(3.6rem, 7.2vw, 7.1rem)/.94 var(--serif);
-    letter-spacing: -.065em;
-    margin-bottom: 25px
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(3.2rem, 6.8vw, 6.2rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-top: 10px;
+    margin-bottom: 28px;
 }
 
 h1 em,
@@ -284,9 +288,11 @@ h2 em {
 .journal-hero>p:last-child,
 .about-title>p:not(.eyebrow),
 .bag-hero>p:last-child {
-    max-width: 390px;
+    max-width: 440px;
     color: #655e58;
-    font-size: 1rem
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 0;
 }
 
 .hero-ctas {
@@ -423,38 +429,49 @@ h2 em {
 
 .style-overview {
     display: grid;
-    grid-template-columns: 1fr .8fr 1fr;
-    gap: 14px
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
 }
 
 .overview-tile {
     border: 1px solid var(--line);
-    padding: 20px;
+    padding: 22px;
     background: #fbf9f5;
-    min-width: 0
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.overview-tile:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(32, 29, 26, 0.08);
 }
 
 .tile-head {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 8px;
     font-size: 0.875rem;
     letter-spacing: 0;
     font-weight: 700;
-    margin-bottom: 18px
+    margin-bottom: 16px;
 }
 
 .tile-head a {
     font-size: 0.875rem;
     letter-spacing: 0;
     text-decoration: underline;
-    text-underline-offset: 4px
+    text-underline-offset: 4px;
 }
 
 .recent-items {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px
+    gap: 10px;
 }
 
 .mini-look img {
@@ -462,76 +479,107 @@ h2 em {
     width: 100%;
     height: 170px;
     object-fit: cover;
-    object-position: top
+    object-position: center 30%;
 }
 
 .mini-look span {
     display: block;
     color: #857d75;
     font-size: 0.875rem;
-    margin-top: 8px
+    margin-top: 8px;
 }
 
 .mini-look b {
     display: block;
     color: var(--ink);
-    font-size: 0.875rem
-}
-
-.tile-note {
     font-size: 0.875rem;
-    color: #918981;
-    margin: 13px 0 0
 }
 
 .tile-image {
     width: 100%;
-    height: 260px;
+    height: 280px;
     object-fit: cover;
-    object-position: top
+    object-position: center 30%;
+    display: block;
 }
 
 .overview-tile h3 {
-    font: 500 1.3rem var(--serif);
-    margin: 13px 0 7px
+    font: 500 1.35rem var(--serif);
+    margin: 0;
 }
 
 .overview-tile>p:not(.tile-note) {
     font-size: 0.875rem;
-    color: #726b64
+    color: #726b64;
 }
 
 .arrow-link {
     display: inline-block;
-    margin-top: 4px
+    margin-top: 4px;
 }
 
 .rec-meta {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 12px;
-    margin-top: 13px
+    margin-top: 16px;
+}
+
+.rec-meta > div {
+    flex: 1;
+    min-width: 0;
 }
 
 .micro-label {
-    font-size: 0.875rem;
-    letter-spacing: 0;
-    color: #827b72
+    display: block;
+    font-size: 0.875rem !important;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #827b72;
+    margin-bottom: 4px;
+    line-height: 1.4;
 }
 
 .rec-meta h3 {
-    margin: 4px 0 0
+    font: 500 1.35rem var(--serif);
+    margin: 0;
+    line-height: 1.25;
+    color: var(--ink);
+    min-height: 3.4rem;
+    display: flex;
+    align-items: flex-start;
 }
 
 .circle-arrow {
-    display: grid;
-    place-items: center;
-    border: 1px solid var(--ink);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--ink);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    flex-shrink: 0
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.circle-arrow:hover {
+    background: var(--ink);
+    color: #fff;
+    transform: scale(1.08);
+}
+
+.tile-note {
+    font-size: 0.875rem !important;
+    color: #827b72;
+    margin-top: auto;
+    padding-top: 14px;
+    line-height: 1.5;
 }
 
 .manifesto {
@@ -1013,7 +1061,11 @@ h2 em {
 .journal-hero h1,
 .about-title h1,
 .bag-hero h1 {
-    font-size: clamp(4rem, 8vw, 7rem)
+    font-size: clamp(3.4rem, 7vw, 6.2rem);
+    line-height: 1.18;
+    letter-spacing: 0;
+    margin-top: 10px;
+    margin-bottom: 28px;
 }
 
 .collection-hero>img {
@@ -1400,7 +1452,10 @@ h2 em {
 }
 
 .bag-hero h1 {
-    margin-bottom: 10px
+    margin-top: 10px;
+    margin-bottom: 34px;
+    line-height: 1.18;
+    letter-spacing: 0;
 }
 
 .bag-layout {
@@ -1727,11 +1782,17 @@ h2 em {
     }
 
     .style-overview {
-        grid-template-columns: 1fr 1fr
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
     }
 
     .overview-tile:first-child {
-        grid-column: 1/-1
+        grid-column: 1/-1;
+    }
+
+    .overview-tile:first-child .tile-image {
+        height: clamp(380px, 50vw, 450px);
+        object-position: center 30%;
     }
 
     .recent-items {
@@ -1807,11 +1868,18 @@ h2 em {
     }
 
     .style-overview {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
 
     .overview-tile:first-child {
-        grid-column: auto
+        grid-column: auto;
+    }
+
+    .tile-image,
+    .overview-tile:first-child .tile-image {
+        height: 280px;
+        object-position: center 30%;
     }
 
     .mini-look img {
